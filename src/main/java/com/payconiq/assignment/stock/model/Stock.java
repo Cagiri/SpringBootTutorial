@@ -62,7 +62,7 @@ public class Stock {
 
 	@Override
 	public String toString() {
-		return String.format("Stock Info [ Stock Id = %s - Current Price = %s - Stock count = ", id,currentPrice,stockCount);
+		return String.format("Stock Info [ Stock Id = %s - Current Price = %s - Stock count = %s", id,currentPrice,stockCount);
 	}
 	
 	@Override

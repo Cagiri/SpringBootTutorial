@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="#{app.title}"></title>
+<link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<h1 th:text="#{app.stock-details}">Details</h1>
+	<form action="#" th:action="@{/api/stocks/1}">
+		<label th:text=#{stock.id}></label> 
+		<input name="ID" type="text" th:value="*{ID}">
+		<input type="submit"
+					th:value="#{stock.form.submit}" />
+	</form>
+	
+	
+	<table>
+		<tr>
+			<th th:text="#{stock.id}" /></th>
+			<th th:text="#{stock.price}"></th>
+			<th th:text="#{stock.count}"></th>
+		</tr>
+		<tr>
+			<td th:text="${stockInfo.id}">Id</td>
+			<td th:text="${stockInfo.currentPrice}">Current Price</td>
+			<td th:text="${stockInfo.stockCount}">Count</td>
+		</tr>
+	</table>
+
+	<h1 th:text="#{app.create-stock}">Update</h1>
+	<form action="#" th:action="@{/api/stocks/1}" th:object="${stockInfo}"
+		th:method="put">
+		<table>
+			<tr>
+				<td th:text="#{stock.id}"></td>
+				<td><input type="text" th:field="*{id}" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td th:text="#{stock.price}"></td>
+				<td><input type="text" th:field="*{currentPrice}" /></td>
+			</tr>
+			<tr>
+				<td th:text="#{stock.price}"></td>
+				<td><input type="text" th:field="*{stockCount}" /></td>
+			</tr>
+
+			<tr>
+				<td colspan="2"><input type="submit"
+					th:value="#{stock.form.submit}" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
