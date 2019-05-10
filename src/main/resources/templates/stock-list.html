@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+      <title th:text="#{app.title}"></title>
+      <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+   <h1 th:text="#{app.stock-details}">Details</h1>
+    <table>
+        <tr>
+           <th th:text="#{stock.id}"/></th>
+           <th th:text="#{stock.price}"></th>
+           <th th:text="#{stock.count}"></th>
+        </tr>
+        <tr th:each="stock : ${stockList}">
+	      <td th:text="${stock.id}">Id</td>
+		  <td th:text="${stock.currentPrice}">Current Price</td>
+		  <td th:text="${stock.stockCount}">Count</td>
+	    </tr>	
+	</table>
+	<a href="#" th:href="@{/api/create-stock}" th:text="#{stock.add-more-stock}">Add Stock</a>
+</body>
+</html> 

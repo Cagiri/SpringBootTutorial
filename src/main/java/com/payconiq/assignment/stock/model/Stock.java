@@ -1,36 +1,38 @@
 package com.payconiq.assignment.stock.model;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Stock {
 
-	private UUID id;
+	private String id;
 	@NotNull(message = "Price should be filled.") 
 	private BigDecimal currentPrice;
 	@PositiveOrZero(message = "Could should be more than zero.")
 	private int stockCount;
+	@JsonIgnore
 	private long lastUpdated;
 	
 	public Stock() {
 		//do nothing..
 	}
 	
-	public Stock(UUID id,BigDecimal currentPrice,int stockCount,long lastUpdated) {
+	public Stock(String id,BigDecimal currentPrice,int stockCount,long lastUpdated) {
 		this.id = id;
 		this.currentPrice = currentPrice;
 		this.stockCount = stockCount;
 		this.lastUpdated = lastUpdated;
 	}
 	
-	public UUID getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -60,7 +62,7 @@ public class Stock {
 
 	@Override
 	public String toString() {
-		return String.format("Stock Info [ Stock Id = %s - Current Price = %s", id,currentPrice);
+		return String.format("Stock Info [ Stock Id = %s - Current Price = %s - Stock count = ", id,currentPrice,stockCount);
 	}
 	
 	@Override

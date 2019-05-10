@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{app.title}"></title>
+        <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    </head>
+	<body>
+	    <h1 th:text="#{app.create-stock}">Create</h1>
+	    <form action="#" th:action="@{/api/stocks/}" th:object="${stock}" method="POST">
+	      <table>
+	    	<tr><td th:text="#{stock.price}"></td>
+	    	    <td>
+	    	      <input type="text" th:field="*{currentPrice}" />
+	    	      <label th:if="${#fields.hasErrors('currentPrice')}" th:text="#{error.stock.price}" th:class="'error'">Price Error</label>
+	    	    </td>
+	    	</tr>
+	    	<tr><td th:text="#{stock.price}"></td>
+	    	    <td>
+	    	      <input type="text" th:field="*{stockCount}" />
+	    	      <label th:if="${#fields.hasErrors('stockCount')}" th:text="#{error.stock.count}" th:class="'error'">Count Error</label>
+	    	    </td>
+	    	</tr>
+	    		    		    	
+	        <tr><td colspan="2">
+	              <input type="submit" th:value="#{user.form.submit}"/> 
+	              <input type="reset" th:value="#{user.form.reset}"/>
+	            </td>
+	        </tr>
+	      </table>  
+	    </form>
+	</body>
+</html> 
