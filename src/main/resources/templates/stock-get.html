@@ -8,13 +8,12 @@
 <body>
 	<h1 th:text="#{app.stock-details}">Details</h1>
 	<form action="#" th:action="@{/api/stocks/1}">
-		<label th:text=#{stock.id}></label> 
-		<input name="ID" type="text" th:value="*{ID}">
-		<input type="submit"
-					th:value="#{stock.form.submit}" />
+		<label th:text=#{stock.id}></label> <input name="ID" type="text"
+			th:value="*{ID}"> <input type="submit"
+			th:value="#{stock.form.submit}" />
 	</form>
-	
-	
+
+
 	<table>
 		<tr>
 			<th th:text="#{stock.id}" /></th>
@@ -34,7 +33,7 @@
 		<table>
 			<tr>
 				<td th:text="#{stock.id}"></td>
-				<td><input type="text" th:field="*{id}" readonly="readonly"/></td>
+				<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
 			</tr>
 			<tr>
 				<td th:text="#{stock.price}"></td>

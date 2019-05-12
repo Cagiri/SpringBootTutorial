@@ -62,7 +62,7 @@ public class Stock {
 
 	@Override
 	public String toString() {
-		return String.format("Stock Info [ Stock Id = %s - Current Price = %s - Stock count = %s", id,currentPrice,stockCount);
+		return String.format("Stock Info [ Stock Id = %s - Current Price = %s - Stock count = %s ]", id,currentPrice,stockCount);
 	}
 	
 	@Override
@@ -73,6 +73,10 @@ public class Stock {
 			return false;
 		
 		Stock other = (Stock) obj;
-		return (id != null && other.id != null) && id.equals(other.id);
+		if ((id == null && other.id == null) && !id.equals(other.id)) {
+			return false;
+		}
+		
+		return (id == other.id && currentPrice.compareTo(other.currentPrice) == 0 && stockCount == other.stockCount);
 	}
 }

@@ -1,16 +1,20 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8" />
-      <title th:text="#{app.title}"></title>
-      <link rel="stylesheet" th:href="@{/css/styles.css}"/>
-   </head>
-   <body>
-      <h1>Welcome to tutorial</h1>
-          
-      <a th:href="@{/api/stocks/}">Stock List and Create</a>
-      <a th:href="@{/api/stocks/1?ID=1}">Stock Get and Update</a>  
-       
-   </body>
-    
+<head>
+<meta charset="UTF-8" />
+<title th:text="#{app.title}"></title>
+<link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<h1>Welcome to tutorial</h1>
+	<table>
+		<tr>
+			<th><a th:href="@{/api/stocks/}">Stock List and Create</a></th>
+		</tr>
+		<tr>
+			<th><a th:href="@{/api/stocks/1?ID=1}">Stock Get and Update</a></th>
+		</tr>
+	</table>
+</body>
+
 </html>

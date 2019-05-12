@@ -41,7 +41,7 @@ public class StockController {
 	}
 	
 	@PutMapping(path="/stocks/1")
-	public ModelAndView updateStock(@ModelAttribute @Valid Stock stock) {
+	public ModelAndView updateStock(@ModelAttribute Stock stock) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		return mav.addObject("updatedStockInfo", stockService.updateStock(stock.getId(), stock.getCurrentPrice(), stock.getStockCount()));
